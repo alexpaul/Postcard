@@ -9,17 +9,25 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var enterNameTextField: UITextField!
+    @IBOutlet weak var enterMessageTextField: UITextField!
+    @IBOutlet weak var mailButton: UIButton!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+    @IBAction func sendMailButtonPressed(sender: UIButton) {
+        //self.messageLabel.hidden = (self.messageLabel.hidden) ? false : true
+        self.messageLabel.hidden = false
+        self.messageLabel.text = self.enterMessageTextField.text
+        self.messageLabel.textColor = UIColor.redColor()
+        
+        self.enterMessageTextField.text = ""
+        enterMessageTextField.resignFirstResponder()
+        
+        self.mailButton.setTitle("Mail Sent", forState: UIControlState.Normal)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
